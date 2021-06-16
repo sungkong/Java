@@ -6,7 +6,6 @@ public class QuickSort {
 		int left = l;
 		int right = r;
 		int pivot = data[(l+r)/2];
-		
 		do {
 			while(data[left] < pivot) left++;
 			while(data[right] > pivot) right--;
@@ -27,7 +26,7 @@ public class QuickSort {
 
 		int data[] = {66, 10, 1, 34, 5, -10};
   
-        QuickSort.sort(data, 0, data.length - 1);
+        QuickSort.sort(data, 0, data.length - 1);        
         for(int i=0; i<data.length; i++){
             System.out.println("data["+i+"] : "+data[i]);
         }
