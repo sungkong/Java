@@ -1,7 +1,11 @@
 package Baekjoon;
 
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
 import java.util.ArrayList;
 import java.util.Scanner;
+import java.util.StringTokenizer;
 
 public class Q1152 {
 	public static void main(String args[]) {
@@ -18,5 +22,14 @@ public class Q1152 {
 			}
 		}
 		System.out.println(arr1.size());
+		
+		/*
+		 * public static void main(String[] args) throws IOException {
+		 * 
+		 * BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+		 * StringTokenizer st = new StringTokenizer(br.readLine()," ");
+		 * 
+		 * int count = st.countTokens(); System.out.print(count); }
+		 */	
 	}
 }
