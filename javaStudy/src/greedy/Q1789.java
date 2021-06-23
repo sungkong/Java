@@ -20,5 +20,21 @@ public class Q1789{
         	}
         }
         System.out.print(count-1);
+// 다른 방법        
+//       Scanner sc = new Scanner(System.in);
+//		long s = sc.nextLong();	
+//		long sum = 0;
+//		int i = 0;
+//		while(true) {					
+//			i++;
+//			sum += i;
+//			if(sum == s) {
+//				break;
+//			} else if(sum > s) {
+//				i--;
+//				break;
+//			}
+//		}
+//		System.out.println(i);
     }
 }
