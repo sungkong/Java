@@ -1,39 +1,38 @@
 package Baekjoon;
 
+import java.io.IOException;
+import java.util.ArrayList;
 import java.util.Scanner;
 
 public class Q2581 {
-	public static void main(String args[]) {
+//https://www.acmicpc.net/problem/2581 소수
+	public static void main(String[] args) throws IOException {
 
-		Scanner sc = new Scanner(System.in);	
-		int M, N;
-		M = sc.nextInt();
-		N = sc.nextInt();
+		Scanner sc = new Scanner(System.in);
+		int n = sc.nextInt();
+		int m = sc.nextInt();
 		int sum = 0;
-		int min = 0;
-		boolean first = false;
-		for(int i = M;i<=N;i++) {
-			if (i == 1) continue;
-			boolean sosu = true;
-			for(int j = 2; j < i; j++) {			
-				if(i % j == 0) {
-					sosu = false;
+		ArrayList<Integer> list = new ArrayList<>();
+		for(int i=n; i<=m; i++) {
+			boolean flag = true;
+			for(int j=2; j<i; j++) {
+				
+				if(i%j == 0) {
+					flag = false;
 					break;
 				}
+				
 			}
-				if(sosu) {
-					if(first == false) {
-						min = i;
-						first = true;
-					}
-					sum += i;
-				}
+			if((flag == true) && (i != 1)) {
+				sum += i;
+				list.add(i);
+			}
 		}
-		if(sum == 0) System.out.print(-1);
-		else {
+		if(list.size()==0) {
+			System.out.println(-1);
+		} else {
 			System.out.println(sum);
-			System.out.print(min);
-		}
-		
+			System.out.println(list.get(0));
+		} 
 	}
 }

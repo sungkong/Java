@@ -1,7 +1,7 @@
 package Baekjoon;
 
 import java.util.Scanner;
-
+// https://www.acmicpc.net/problem/4344
 public class Q4344 {
 	public static void main(String args[]) {
 		
