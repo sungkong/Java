@@ -6,7 +6,7 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.io.OutputStreamWriter;
 import java.util.Arrays;
-//https://www.acmicpc.net/status?user_id=thstjddn0223&problem_id=5052&from_mine=1  
+//https://www.acmicpc.net/status?user_id=thstjddn0223&problem_id=5052&from_mine=1
 public class Q5052 {
 
 	public static void main(String[] args) throws IOException{
