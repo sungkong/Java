@@ -1,0 +1,63 @@
+-----------Comparator 사용법------------------
+Arrays.sort(arr, new Comparator<T>(){
+
+@Override
+public int compare(T v1, T v2){
+	return 리턴 값이 양수면 바뀐다.
+	});
+예제.
+String[] arr = {"bb","mm","mm","nnnnn","aa"};
+	
+	Arrays.sort(arr, new Comparator<String>() {
+		
+		public int compare(String s1, String s2) {
+			if(s1.length() == s2.length()) {
+				return s1.compareTo(s2);
+			} else {
+				return s1.length() - s2.length(); 
+			}
+		}
+	});
+---------------------------------------------
+
+컬렉션 순회해서 검색하고 싶을 때는 Iterator를 사용.
+
+----------------예외 처리--------------------------
+예외 미루기 : 클래스() throws OOException = 이 클래스를 구현하는 메소드에서 예외 처리를 한다!
+
+Exception클래스를 활용하여 defulat 처리를 할 때, Exception블록은 맨 마지막 뒤에 위치. 맨 위에 위치할 경우 모든 예외를 다 처리해버림
+try {
+} catch(FileNotFoundException e) {
+} catch(Exception e){
+} 
+
+---------------------------스트림--------------------------------------
+병렬처리(멀티 쓰레딩) : 하나의 작업을 둘 이상의 작업으로 잘게 나눠서 동시에 진행하는 것.
+
+바이트 단위 스트림 : 동영상, 음악 파일, 실행 파일등의 자료를 읽고 쓸 때 사용
+문자 단위 스트림 : 바이트 단위로 자료를 처리하면 문자는 깨짐, 인코딩에 맞게 2바이트 이상으로 처리하도록 구현된 스트림(자바에서는 문자를 다루는 char형이 2byte)
+바이트 스트림 : InputStream, OutputStream / 문자 스트림 : Reader, Writer
+단방향 통신. 입력, 출력 둘 다 필요
+FileReader = 파일에서 문자 단위로 읽는 스트림 클래스
+InputStreamReader = 바이트 단위로 읽은 자료를 문자로 변환해주는 보조 스트림 클래스
+BufferedReader = 문자를 읽을 때 배열을 제공하여 한꺼번에 읽을 수 있는 기능을 제공하는보조 스트림.
+*파일 읽어오기. (try-with-resource로 예외처리 해줄 것). *
+FileReader fr = new FileReader("Hello.txt");
+		int i;
+		*int i = fr.read();라고 하면. 첫글자를 계속 읽어오기 때문에 무한루프됨. 고로 while(i = fr.read()로 하나씩 다음 단계로 읽게 한다)*
+		while((i = fr.read()) != -1) {
+			System.out.print((char)i);
+		}
+	
+File클래스 : 파일 개념을 추상화한 클래스. 입출력x. 파일의 이름, 경로, 읽기 전용등의 속성을 알 수 있다.
+RandomAccessFile 클래스 : 유일하게 파일에 대한 입출력을 핳 수 있다. 파일 포인터가 있어서 읽고 쓰는 위치의 이동이 가능.
+----------------------직렬화 사용 이유-----------------------------------
+개발 언어로 무엇을 사용하던(C++, C, C#, Java 등,,) 사용하는 데이터들의 메모리 구조는 크게 2가지로 나뉜다. 
+1. 값 형식 데이터(Value Type) : 우리가 흔히 선언해서 사용하는 int, float, char 등, 값 형식 데이터들은 스택에 메모리가 쌓이고 직접 접근이 가능하다.
+2. 참조 형식 데이터(Reference Type) : C#에서 Object 타입 혹은 C++에서 포인터 변수들이 여기에 해당된다. 해당 형식의 변수를 선언하면 힙에 메모리가 할당되고 
+스택에서는 이 힙 메모리를 참조하는(힙에 메모리 번지 주소를 가지고 있음) 구조로 되어있다.
+!디스크에 저장하거나 통신에는 값 형식 데이터(Value Type)만 가능하다. 
+왜 참조 형식 데이터는 사용할 수 없을까 ? 프로그램이 종료되면 기존에 할당되었던 메모리 주소는 해제되고 없어진다. 
+네트워크 통신 또한 마찬가지이다. 각 PC마다 사용하고있는 메모리 공간 주소는 전혀 다르다.
+직렬화를 하게 되면 각 주소값이 가지는 데이터들을 전부 끌어모아서 값 형식(Value Type)데이터로 변환해준다. 
+이러한 이유 때문에 데이터를 저장, 통신전에 '데이터 직렬화(Serialization)' 작업이 필요
