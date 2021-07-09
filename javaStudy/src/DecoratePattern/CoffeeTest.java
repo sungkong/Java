@@ -10,7 +10,7 @@ public class CoffeeTest {
 		Coffee milk = new Milk(americano);
 		milk.brewing();
 		
-		//Coffee sugar = new Sugar(milk);
+		//Coffee sugar = new Sugar(milk); 아래와 똑같다.
 		Coffee sugar = new Sugar(new Milk(new Americano()));
 		sugar.brewing();
 		
