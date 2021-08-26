@@ -160,7 +160,6 @@ public class BinarySearchTree {
 					currNode = null;
 				}
 				return true;
-				
 			}
 		}
 
