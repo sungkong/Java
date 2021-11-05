@@ -166,6 +166,7 @@ public class BinarySearchTree {
 
 	}
 	
+	//전위 순회
 	public void preOrder(Node root) {
 		if(root != null) {
 			System.out.println(" " + root.value);

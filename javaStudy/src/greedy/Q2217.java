@@ -18,5 +18,24 @@ public class Q2217{
         	if(max < w) max = w;
         }
         System.out.print(max);
+        
+        /* Scanner sc = new Scanner(System.in);
+		
+		int n = sc.nextInt();
+		int[] arr = new int[n];
+		int sum = 0;
+		
+		for(int i=0; i<n; i++) {
+			arr[i] = sc.nextInt();
+		}
+		
+		Arrays.sort(arr);
+		for(int i=0; i<n; i++) {
+			int tmp = arr[i] * (n-i);
+			if(sum < tmp) {
+				sum = tmp;
+			}
+		}
+		System.out.println(sum); */
     }
 }
